@@ -1,0 +1,7 @@
+Verification Commands
+# View interface status
+show ip interface brief
+# Check routing table
+show ip route
+# Test connectivity
+ping <destination_ip>
