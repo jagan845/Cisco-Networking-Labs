@@ -1,0 +1,5 @@
+Verification Commands
+# Check interface status
+show ip interface brief
+# Display routing table
+show ip route
