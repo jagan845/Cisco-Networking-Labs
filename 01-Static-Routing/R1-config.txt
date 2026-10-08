@@ -1,0 +1,31 @@
+Router R1 Configuration
+Router> enable
+Router# configure terminal
+# Set hostname
+Router(config)# hostname R1
+# Configure FastEthernet interface
+R1(config)# interface fastEthernet0/0
+R1(config-if)# ip address 192.168.10.1 255.255.255.0
+R1(config-if)# no shutdown
+R1(config-if)# exit
+# Configure Serial 0/0/0
+R1(config)# interface serial0/0/0
+R1(config-if)# ip address 172.16.0.1 255.255.0.0
+R1(config-if)# encapsulation ppp
+R1(config-if)# clock rate 64000
+R1(config-if)# no shutdown
+R1(config-if)# exit
+# Configure Serial 0/0/1
+R1(config)# interface serial0/0/1
+R1(config-if)# ip address 172.18.0.2 255.255.0.0
+R1(config-if)# encapsulation ppp
+R1(config-if)# no shutdown
+R1(config-if)# exit
+# Enable IP routing and add static routes
+R1(config)# ip routing
+R1(config)# ip route 192.168.20.0 255.255.255.0 172.16.0.2
+R1(config)# ip route 192.168.30.0 255.255.255.0 172.18.0.1
+R1(config)# ip route 172.17.0.0 255.255.0.0 172.18.0.1
+R1(config)# end
+R1# write
+
