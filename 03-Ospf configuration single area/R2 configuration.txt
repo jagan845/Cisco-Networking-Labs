@@ -1,0 +1,28 @@
+Router> enable
+Router# configure terminal
+# Set hostname
+Router(config)# hostname R2
+# Configure FastEthernet 0/0
+R2(config)# interface fastEthernet0/0
+R2(config-if)# ip address 192.168.20.1 255.255.255.0
+R2(config-if)# no shutdown
+R2(config-if)# exit
+# Configure Serial 0/0/0
+R2(config)# interface serial0/0/0
+R2(config-if)# ip address 172.17.0.1 255.255.0.0
+R2(config-if)# no shutdown
+R2(config-if)# exit
+# Configure Serial 0/0/1
+R2(config)# interface serial0/0/1
+R2(config-if)# ip address 172.16.0.2 255.255.0.0
+R2(config-if)# no shutdown
+R2(config-if)# exit
+# Enable IP routing and configure OSPF
+R2(config)# ip routing
+R2(config)# router ospf 1
+R2(config-router)# network 192.168.20.0 0.0.0.255 area 0
+R2(config-router)# network 172.16.0.0 0.0.255.255 area 0
+R2(config-router)# network 172.17.0.0 0.0.255.255 area 0
+R2(config-router)# exit
+R2(config)# end
+R2# write
