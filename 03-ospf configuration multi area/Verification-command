@@ -1,4 +1,10 @@
+# View interface status
 show ip interface brief
-show ip ospf interface brief
+# Display OSPF neighbor relationships
 show ip ospf neighbor
+# Display OSPF routing table entries
 show ip route ospf
+# Check overall routing table
+show ip route ospf
+# Test connectivity between routers
+ping <destination_ip>
