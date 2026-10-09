@@ -1,0 +1,26 @@
+enable
+configure terminal
+hostname R3
+
+interface fastEthernet0/0
+ ip address 192.168.30.1 255.255.255.0
+ no shutdown
+ exit
+
+interface serial0/0/0
+ ip address 172.18.0.1 255.255.0.0
+ no shutdown
+ exit
+
+interface serial0/0/1
+ ip address 172.17.0.2 255.255.0.0
+ no shutdown
+ exit
+ip routing
+router ospf 1
+ network 192.168.30.0 0.0.0.255 area 2
+ network 172.18.0.0 0.0.255.255 area 0
+ network 172.17.0.0 0.0.255.255 area 0
+ exit
+ end
+write memory
