@@ -16,12 +16,11 @@ interface serial0/0/1
  ip address 172.18.0.2 255.255.0.0
  no shutdown
  exit
-
+ip routing
 router ospf 1
  network 192.168.10.0 0.0.0.255 area 1
  network 172.16.0.0 0.0.255.255 area 0
  network 172.18.0.0 0.0.255.255 area 0
  exit
-
-end
+ end
 write memory
