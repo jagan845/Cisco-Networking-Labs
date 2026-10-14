@@ -1,0 +1,9 @@
+Verification Commands
+# Check interface status
+show ip interface brief
+# Display EIGRP neighbor relationships
+show ip eigrp neighbors
+# Display routing table entries
+show ip route eigrp
+# Test connectivity between routers
+ping <destination_ip>
